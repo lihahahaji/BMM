@@ -12,6 +12,8 @@ BMM
 └─ update
 
 ```
+运行时间
+![Alt text](image.png)
 
 
 双向最大匹配法（Bidirectional Maximum Match, BMM）是一种用于中文分词的常见算法。它的主要思想是从待分词的文本中同时从前向后和从后向前进行扫描，选择最长的匹配词语作为分词结果。
