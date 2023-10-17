@@ -79,8 +79,14 @@ if __name__ == '__main__':
         text = file.read()
 
     word_dict = load_dictionary(dictionary_file)
+    sorted_dict = dict(sorted(word_dict.items(), key=lambda item: item[1], reverse=True))
+
+    # 对词典按照词频大小顺序排序    
+    # print(sorted_dict)
+
+
     # Bidirectional_Maximum_Matching(text, word_dict)
-    segmented_text = Bidirectional_Maximum_Matching(text, word_dict)
+    segmented_text = Bidirectional_Maximum_Matching(text, sorted_dict)
 
     # # 将分词结果输出到 output.txt 文件
     with open("output.txt", "w", encoding="utf-8") as output_file:

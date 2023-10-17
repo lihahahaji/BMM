@@ -13,9 +13,10 @@ BMM
 
 ```
 运行时间
-![Alt text](image.png)
-
-
+- 双向最大匹配
+![Alt text](image-1.png)
+- 最优匹配
+![Alt text](image-2.png)
 
 ## 最大匹配法
 ### 正向最大匹配法 FMM
@@ -45,18 +46,35 @@ BMM
 
 
 ### 逆向最大匹配法 BMM
+```python
+def BMM(text,word_dict):
+    res = ""
+    # 令 length 的初始值等于词典中最大的词的长度
+    max_length = max(len(word) for word in word_dict)
+    length = max_length
 
+    while(text!=""):
+        # 从字符串的末尾取 长度为 len 的子串 w
+        w = text[-length:]
+
+        if(w in word_dict):
+            text = text[:-length]
+            res = w+" "+res
+            length = max_length
+        else:
+            if length ==1 :
+                text = text[:-length]
+                res = w+" "+res
+                length = max_length
+
+            else:
+                length-=1
+    return res
+```
 
 
 最大匹配分词寻找最优组合的方式是将匹配到的最长词组合在一起
 
-先将词典构造成一棵Trie树
-
-
-
-
-
-双向最大匹配法（Bidirectional Maximum Match, BMM）是一种用于中文分词的常见算法。它的主要思想是从待分词的文本中同时从前向后和从后向前进行扫描，选择最长的匹配词语作为分词结果。
 
 算法流程如下：
 
