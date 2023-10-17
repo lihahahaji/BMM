@@ -21,15 +21,17 @@ def BMM(text,word_dict):
     length = max_length
 
     while(text!=""):
-        w = text[0:length]
+        # 从字符串的末尾取 长度为 len 的子串 w
+        w = text[-length:]
+
         if(w in word_dict):
-            text = text[length:]
-            res += w+" "
+            text = text[:-length]
+            res = w+" "+res
             length = max_length
         else:
             if length ==1 :
-                text = text[length:]
-                res += w+" "
+                text = text[:-length]
+                res = w+" "+res
                 length = max_length
 
             else:

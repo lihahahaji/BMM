@@ -18,11 +18,33 @@ BMM
 
 
 ## 最大匹配法
-### 正向匹配法
+### 正向最大匹配法 FMM
+ ```python
+ def FMM(text,word_dict):
+    res = ""
+    # 令 length 的初始值等于词典中最大的词的长度
+    max_length = max(len(word) for word in word_dict)
+    length = max_length
+
+    while(text!=""):
+        w = text[0:length]
+        if(w in word_dict):
+            text = text[length:]
+            res += w+" "
+            length = max_length
+        else:
+            if length ==1 :
+                text = text[length:]
+                res += w+" "
+                length = max_length
+
+            else:
+                length-=1
+    return res
+ ```
 
 
-
-### 逆向匹配法
+### 逆向最大匹配法 BMM
 
 
 
