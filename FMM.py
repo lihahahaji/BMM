@@ -1,4 +1,4 @@
-# 逆向最大匹配法 BMM
+# 正向最大匹配法 FMM
 
 # 加载字典
 def load_dictionary(dictionary_file):
@@ -14,7 +14,7 @@ def load_dictionary(dictionary_file):
         return word_dict
 
 
-def BMM(text,word_dict):
+def FMM(text,word_dict):
     res = ""
     # 令 length 的初始值等于词典中最大的词的长度
     max_length = max(len(word) for word in word_dict)
@@ -46,7 +46,7 @@ if __name__ == '__main__':
         text = file.read()
 
     word_dict = load_dictionary(dictionary_file)
-    segmented_text = BMM(text, word_dict)
+    segmented_text = FMM(text, word_dict)
 
     # 将分词结果输出到 output.txt 文件
     with open("output.txt", "w", encoding="utf-8") as output_file:
