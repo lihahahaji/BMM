@@ -14,9 +14,9 @@ BMM
 ```
 运行时间
 - 双向最大匹配
-![Alt text](image-1.png)
+![Alt text](./asserts/image-1.png)
 - 最优匹配
-![Alt text](image-2.png)
+![Alt text](./asserts/image-2.png)
 
 ## 最大匹配法
 ### 正向最大匹配法 FMM
